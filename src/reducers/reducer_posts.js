@@ -11,6 +11,8 @@ export default function( state = {}, action){
       return { ...state, [action.payload.data.id]: action.payload.data }
     case FETCH_POSTS:
       return _.mapKeys(action.payload.data, 'id'); //Returns the new mapped object.
+      //action.payload.data => [Object, Object, Object]  an Array
+      //_.mapKeys(action.payload.data, 'id') => ex. {106099: Object, 106133: Object, 106134: Object} become an Object.
     case DELETE_POST:
       return _.omit(state, action.payload);
     default:
